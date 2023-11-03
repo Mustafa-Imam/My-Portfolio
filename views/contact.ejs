@@ -1,0 +1,40 @@
+<!-- Contact Section -->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link href="style_4.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <%- include('partials/header', { title: 'Contact' }) %>
+    <%- include('partials/main_nav') %>
+
+    <div id="wrapper">
+        <h1><center>Contact Below!</center></h1>
+        <form action="/send" method="post" name="send_message">
+            <p>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+            </p>
+            <p>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+            </p>
+            <p>
+                <label for="comments">Comments</label>
+                <textarea name="comments" cols="60" rows="6"></textarea>
+            </p>
+            <p>
+                <input type="checkbox" name="securityCheck" value="4">
+                <label for="securityCheck">2 + 2 = 4. Check box for "Yes". Don't Check box for "No"</label>
+            </p>
+            <p>
+                <input type="submit" value="Send">
+            </p>
+        </form>
+        
+        <%- include('partials/footer') %>
+    </div>
+</body>
+</html>
