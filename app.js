@@ -40,7 +40,7 @@ app.post('/send', (req, res) => {
   });
 
   let message = {
-    from: 'Sender Name <' + req.body.email + '>',
+    from: 'Sender Name <mustafa-imam@outlook.com>',
     to: 'Receiver Name <mustafa-imam@outlook.com>',
     subject: 'New Message from Contact Form',
     text: 'Name: ' + req.body.name + '\nEmail: ' + req.body.email + '\nMessage: ' + req.body.comments,
