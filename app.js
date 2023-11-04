@@ -26,27 +26,31 @@ app.use('/users', usersRouter);
 
 // POST route from contact form
 app.post('/send', (req, res) => {
-  if(!req.body.securityCheck) {
+  // Basic security check
+  if(req.body.securityCheck !== '4') {
     res.send("Security check failed.");
     return;
   }
 
+  // Creates a SMTP transporter object
   let transporter = nodemailer.createTransport({
-    service: 'Outlook',
+    service: 'Outlook', 
     auth: {
-      user: 'mustafa-imam@outlook.com',
-      pass: 'pfdduwagkdnpqdxy'
+      user: 'mustafa-imam@outlook.com', // Your authenticated email
+      pass: 'pfdduwagkdnpqdxy' // Your app password
     }
   });
 
+  // Message object
   let message = {
-    from: 'Sender Name <mustafa-imam@outlook.com>',
-    to: 'Receiver Name <mustafa-imam@outlook.com>',
-    subject: 'New Message from Contact Form',
+    from: 'mustafa-imam@outlook.com', // Your authenticated email
+    to: 'mustafa-imam@outlook.com', // Your email
+    subject: 'New Message from ' + req.body.email, // Include user's email in subject
     text: 'Name: ' + req.body.name + '\nEmail: ' + req.body.email + '\nMessage: ' + req.body.comments,
     html: '<p><b>Name:</b> ' + req.body.name + '</p><p><b>Email:</b> ' + req.body.email + '</p><p><b>Message:</b> ' + req.body.comments + '</p>'
   };
 
+  // sends mail with defined transport object
   transporter.sendMail(message, (error, info) => {
     if (error) {
       res.send("Error occurred.");
@@ -72,7 +76,11 @@ app.use(function(err, req, res, next) {
 
   // renders the error page
   res.status(err.status || 500);
-  res.render('error', res.locals); // Updated this line
+  res.render('error', 
+  {
+    title: "Error"
+  }
+  );
 });
 
 module.exports = app;
