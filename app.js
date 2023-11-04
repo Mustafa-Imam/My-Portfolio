@@ -36,8 +36,8 @@ app.post('/send', (req, res) => {
   let transporter = nodemailer.createTransport({
     service: 'Outlook', 
     auth: {
-      user: 'mustafa-imam@outlook.com', // Your authenticated email
-      pass: 'pfdduwagkdnpqdxy' // Your app password
+      user: process.env.EMAIL, // my hidden email for security purposes
+      pass: process.env.EMAIL_PASSWORD // my hidden password for security purposes
     }
   });
 
