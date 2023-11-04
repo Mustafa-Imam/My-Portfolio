@@ -25,7 +25,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // POST route from contact form
-app.post('/send', (req, res) => {
+app.post('/send', (req, res, next) => {
   // Basic security check
   if(req.body.securityCheck !== '4') {
     res.send("Security check failed.");
@@ -53,17 +53,20 @@ app.post('/send', (req, res) => {
   // sends mail with defined transport object
   transporter.sendMail(message, (error, info) => {
     if (error) {
-      res.send("Error occurred.");
       console.log('Error occurred. ' + error.message);
-      return process.exit(1);
+      next(error);
+    } else {
+      console.log('Message sent: %s', info.messageId);
+      res.render('error', {
+        title: "Success",
+        message: "Hooray, your message has been sent!!!",
+        success: true
+      });
     }
-
-    console.log('Message sent: %s', info.messageId);
-    res.send("Message sent successfully!");
   });
 });
 
-// catch 404 and forward to error handler
+// catches 404 and forwards it to the error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
@@ -76,11 +79,12 @@ app.use(function(err, req, res, next) {
 
   // renders the error page
   res.status(err.status || 500);
-  res.render('error', 
-  {
-    title: "Error"
-  }
-  );
+  res.render('error', {
+    title: err.status === 404 ? "404: File Not Found" : "Error",
+    message: err.message,
+    error: err,
+    success: false
+  });
 });
 
 module.exports = app;
