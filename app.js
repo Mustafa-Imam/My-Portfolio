@@ -1,3 +1,5 @@
+let nodemailer = require('nodemailer');
+
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
@@ -23,6 +25,45 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+// POST route from contact form
+app.post('/send', (req, res) => {
+  // Basic security check
+  if(req.body.securityCheck !== '4') {
+    res.send("Security check failed.");
+    return;
+  }
+
+  // Creates a SMTP transporter object
+  let transporter = nodemailer.createTransport({
+    service: 'Outlook', 
+    auth: {
+      user: 'mustafa-imam@outlook.com', // Your email
+      pass: 'qanqrbwbrssrttcf' // Your app password
+    }
+  });
+
+  // Message object
+  let message = {
+    from: 'Sender Name <' + req.body.email + '>', // Sender's email
+    to: 'Receiver Name <mustafa-imam@outlook.com>', // Your email
+    subject: 'New Message from Contact Form',
+    text: 'Name: ' + req.body.name + '\nEmail: ' + req.body.email + '\nMessage: ' + req.body.comments,
+    html: '<p><b>Name:</b> ' + req.body.name + '</p><p><b>Email:</b> ' + req.body.email + '</p><p><b>Message:</b> ' + req.body.comments + '</p>'
+  };
+
+  // sends mail with defined transport object
+  transporter.sendMail(message, (error, info) => {
+    if (error) {
+      res.send("Error occurred.");
+      console.log('Error occurred. ' + error.message);
+      return process.exit(1);
+    }
+
+    console.log('Message sent: %s', info.messageId);
+    res.send("Message sent successfully!");
+  });
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -30,11 +71,11 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  // sets locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
+  // renders the error page
   res.status(err.status || 500);
   res.render('error', 
   {
