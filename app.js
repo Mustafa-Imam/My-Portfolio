@@ -36,16 +36,16 @@ app.post('/send', (req, res) => {
   let transporter = nodemailer.createTransport({
     service: 'Outlook', 
     auth: {
-      user: 'mustafa-imam@outlook.com', // Your authenticated email
-      pass: 'pfdduwagkdnpqdxy' // Your app password
+      user: 'mustafa-imam@outlook.com', // my authenticated email
+      pass: 'pfdduwagkdnpqdxy' // my app password
     }
   });
 
   // Message object
   let message = {
-    from: 'mustafa-imam@outlook.com', // Your authenticated email
-    to: 'mustafa-imam@outlook.com', // Your email
-    subject: 'New Message from ' + req.body.email, // Include user's email in subject
+    from: 'mustafa-imam@outlook.com',
+    to: 'mustafa-imam@outlook.com',
+    subject: 'New Message from ' + req.body.email, // Includes user's email in subject
     text: 'Name: ' + req.body.name + '\nEmail: ' + req.body.email + '\nMessage: ' + req.body.comments,
     html: '<p><b>Name:</b> ' + req.body.name + '</p><p><b>Email:</b> ' + req.body.email + '</p><p><b>Message:</b> ' + req.body.comments + '</p>'
   };
