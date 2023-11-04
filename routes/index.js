@@ -5,8 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('home', { title: 'Home' });
 });
-router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'About Me' });
+router.get('/aboutme', function(req, res, next) {
+  res.render('aboutme', { title: 'About Me' });
 });
 router.get('/projects', function(req, res, next) {
   res.render('projects', { title: 'Projects' });
