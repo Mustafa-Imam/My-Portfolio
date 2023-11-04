@@ -1,5 +1,4 @@
 let nodemailer = require('nodemailer');
-
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
@@ -27,31 +26,27 @@ app.use('/users', usersRouter);
 
 // POST route from contact form
 app.post('/send', (req, res) => {
-  // Basic security check
-  if(req.body.securityCheck !== '4') {
+  if(!req.body.securityCheck) {
     res.send("Security check failed.");
     return;
   }
 
-  // Creates a SMTP transporter object
   let transporter = nodemailer.createTransport({
-    service: 'Outlook', 
+    service: 'Outlook',
     auth: {
-      user: 'mustafa-imam@outlook.com', // Your email
-      pass: 'qanqrbwbrssrttcf' // Your app password
+      user: 'mustafa-imam@outlook.com',
+      pass: 'pfdduwagkdnpqdxy'
     }
   });
 
-  // Message object
   let message = {
-    from: 'Sender Name <' + req.body.email + '>', // Sender's email
-    to: 'Receiver Name <mustafa-imam@outlook.com>', // Your email
+    from: 'Sender Name <' + req.body.email + '>',
+    to: 'Receiver Name <mustafa-imam@outlook.com>',
     subject: 'New Message from Contact Form',
     text: 'Name: ' + req.body.name + '\nEmail: ' + req.body.email + '\nMessage: ' + req.body.comments,
     html: '<p><b>Name:</b> ' + req.body.name + '</p><p><b>Email:</b> ' + req.body.email + '</p><p><b>Message:</b> ' + req.body.comments + '</p>'
   };
 
-  // sends mail with defined transport object
   transporter.sendMail(message, (error, info) => {
     if (error) {
       res.send("Error occurred.");
@@ -77,11 +72,7 @@ app.use(function(err, req, res, next) {
 
   // renders the error page
   res.status(err.status || 500);
-  res.render('error', 
-  {
-    title: "Error"
-  }
-  );
+  res.render('error', res.locals); // Updated this line
 });
 
 module.exports = app;
