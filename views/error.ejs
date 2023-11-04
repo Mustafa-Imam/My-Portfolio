@@ -5,8 +5,6 @@
     <% if (error.status === 404) { %>
         <h1>404 Not Found</h1>
         <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
-    <% } else if (success) { %>
-        <h1><%= message %></h1>
     <% } else { %>
         <h1>Error</h1>
         <h2><%= message %></h2>
