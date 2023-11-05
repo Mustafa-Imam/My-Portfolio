@@ -1,40 +1,47 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Contact</title>
+    <link rel="stylesheet" href="/content/app.css">
 </head>
 <body>
     <%- include('partials/header', { title: 'Contact' }) %>
 
     <div class="sticky-footer-wrapper">
         <div class="sticky-footer-content">
-            <div id="wrapper">
-                <h1><center>Contact Below!</center></h1>
-                <form action="/send" method="post" name="send_message">
-                    <p>
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" required>
-                    </p>
-                    <p>
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" required>
-                    </p>
-                    <p>
-                        <label for="comments">Comments</label>
-                        <textarea name="comments" cols="60" rows="6" required></textarea>
-                    </p>
-                    <p>
+            <article>
+                <h1>
+                    <center>Contact Below!</center>
+                </h1>
+            </article>
+
+            <article>
+                <form action="/send" method="post" name="send_message" class="contact-form">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div>
+                        <label for="comments">Comments:</label>
+                        <textarea name="comments" id="comments" placeholder="Your Message" cols="60" rows="12" required></textarea>
+                    </div>
+                    <div style="display: none;">
                         <input type="hidden" name="securityCheck" value="4">
-                    </p>
-                    <p>
-                        <input type="submit" value="Send">
-                    </p>
+                    </div>
+                    <div> 
+                        <button type="submit" class="submit-button">Send</button>
+                    </div>
                 </form>
-                
-            </div>
+            </article>
+
+            <div class="clear"></div>
         </div>
-        
+
         <%- include('partials/footer') %>
     </div>
 </body>

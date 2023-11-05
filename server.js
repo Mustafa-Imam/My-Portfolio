@@ -11,20 +11,20 @@ var debug = require('debug')('classproject:server');
 var http = require('http');
 
 /**
- * Get port from environment and store in Express.
+ * Gets port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Creates HTTP server.
  */
 
 var server = http.createServer(app);
 
 /**
- * Listen on provided port, on all network interfaces.
+ * Listens on provided port, on all network interfaces.
  */
 
 server.listen(port);
@@ -32,7 +32,7 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
- * Normalize a port into a number, string, or false.
+ * Normalizes a port into a number, string, or false.
  */
 
 function normalizePort(val) {
@@ -64,7 +64,7 @@ function onError(error) {
     ? 'Pipe ' + port
     : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
+  // handles specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
