@@ -29,4 +29,13 @@ body {
   margin-right: 5px; /* Space between icon and text */
 }
 
+.sticky-footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sticky-footer-content {
+  flex: 1;
+}
 

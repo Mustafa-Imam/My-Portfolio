@@ -1,5 +1,3 @@
-<!-- Contact Section -->
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -7,35 +5,37 @@
     <title>Contact</title>
 </head>
 <body>
+    <%- include('partials/header', { title: 'Contact' }) %>
 
-<%- include('partials/header', { title: 'Contact' }) %>
-
-    <div id="wrapper">
-        <h1><center>Contact Below!</center></h1>
-        <form action="/send" method="post" name="send_message">
-            <p>
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" required>
-            </p>
-            <p>
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" required>
-            </p>
-            <p>
-                <label for="comments">Comments</label>
-                <textarea name="comments" cols="60" rows="6" required></textarea>
-            </p>
-            <p>
-                <input type="hidden" name="securityCheck" value="4">
-            </p>
-            <p>
-                <input type="submit" value="Send">
-            </p>
-        </form>
+    <div class="sticky-footer-wrapper">
+        <div class="sticky-footer-content">
+            <div id="wrapper">
+                <h1><center>Contact Below!</center></h1>
+                <form action="/send" method="post" name="send_message">
+                    <p>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" required>
+                    </p>
+                    <p>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+                    </p>
+                    <p>
+                        <label for="comments">Comments</label>
+                        <textarea name="comments" cols="60" rows="6" required></textarea>
+                    </p>
+                    <p>
+                        <input type="hidden" name="securityCheck" value="4">
+                    </p>
+                    <p>
+                        <input type="submit" value="Send">
+                    </p>
+                </form>
+                
+            </div>
+        </div>
         
+        <%- include('partials/footer') %>
     </div>
-
-    <%- include('partials/footer') %>
-
 </body>
 </html>
