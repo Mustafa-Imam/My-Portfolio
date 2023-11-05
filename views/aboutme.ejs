@@ -1,25 +1,22 @@
 <%- include('partials/header', { title: 'About Me' }) %>
 
-<div class="container">
+<article> 
+    <h1>
+        <center>Who Am I?</center>
+    </h1> 
+    <p>Hi there, my name is Mustafa Imam. I am 21 year old Ontario Tech student currently in the Networking and IT Security Program for my 
+    third year. I love to eat out, travel, hang out with friends and family, read books, watch movies, play video games, and workout. My goal
+    for the end of the year is to be able to get an internship for the summer of 2024 in an IT company to further my credentials and experience. 
+    </p>
+</article>
 
-    <article> 
-        <h1 class="text-center">Who Am I?</h1>
-        <p>Hi there, my name is Mustafa Imam. I am a 21-year-old Ontario Tech student currently in the Networking and IT Security Program for my 
-        third year. I love to eat out, travel, hang out with friends and family, read books, watch movies, play video games, and workout. My goal
-        for the end of the year is to be able to get an internship for the summer of 2024 in an IT company to further my credentials and experience.</p>
-    </article>
+<center>
+    <img src="/images/me_1.jpg" alt="My Picture" width = "408px" height = "512px">
+    <video width="408px" height="512px" poster="/images/me_2.jpg" controls>
+        <source src = "/videos/video_1.mp4" type = "video/mp4">
+    </video>
+</center>
 
-    <div class="media-gallery">
-        <div class="media-container">
-            <img src="/images/me_1.jpg" alt="My Picture">
-        </div>
-        <div class="media-container">
-            <video poster="/images/me_2.jpg" controls>
-                <source src="/videos/video_1.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-
-</div>
+<div class = "clear"></div>
 
 <%- include('partials/footer') %>

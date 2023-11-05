@@ -43,8 +43,8 @@ app.post('/send', (req, res) => {
 
   // Message object
   let message = {
-    from: process.env.EMAIL, // email is sent by my email with users message
-    to: process.env.EMAIL, // users message is sent to my email by my email
+    from: process.env.EMAIL, // Your authenticated email
+    to: process.env.EMAIL, // Your email
     subject: 'New Message from ' + req.body.email, // Include user's email in subject
     text: 'Name: ' + req.body.name + '\nEmail: ' + req.body.email + '\nMessage: ' + req.body.comments,
     html: '<p><b>Name:</b> ' + req.body.name + '</p><p><b>Email:</b> ' + req.body.email + '</p><p><b>Message:</b> ' + req.body.comments + '</p>'

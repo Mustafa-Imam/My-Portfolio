@@ -1,43 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Contact Section -->
+
+<!DOCTYPE HTML>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Contact</title>
-    <%- include('partials/header', { title: 'Contact' }) %>
 </head>
 <body>
 
-    <div class="container">
-        <h1 class="text-center">Contact Below!</h1>
+<%- include('partials/header', { title: 'Contact' }) %>
 
-        <div class="media-gallery">
-            <div class="media-container">
-                <img src="/images/me_3.jpg" alt="My Picture">
-            </div>
-        </div>
-
-        <form action="/send" method="post" name="send_message" class="contact-form">
-            <div class="form-group">
+    <div id="wrapper">
+        <h1><center>Contact Below!</center></h1>
+        <form action="/send" method="post" name="send_message">
+            <p>
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" required>
-            </div>
-            <div class="form-group">
+            </p>
+            <p>
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" required>
-            </div>
-            <div class="form-group">
+            </p>
+            <p>
                 <label for="comments">Comments</label>
-                <textarea name="comments" id="comments" cols="60" rows="6" required></textarea>
-            </div>
-            <div class="form-group">
+                <textarea name="comments" cols="60" rows="6" required></textarea>
+            </p>
+            <p>
                 <input type="hidden" name="securityCheck" value="4">
-            </div>
-            <div class="form-group">
+            </p>
+            <p>
                 <input type="submit" value="Send">
-            </div>
+            </p>
         </form>
+        
     </div>
 
     <%- include('partials/footer') %>
+
 </body>
 </html>
