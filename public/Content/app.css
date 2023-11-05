@@ -39,7 +39,6 @@ body {
   flex: 1;
 }
 
-/* New styles for contact form */
 .contact-form {
   color: black;
   font-family: Arial, sans-serif;
@@ -101,3 +100,8 @@ body {
   background-color: #333333; /* A lighter shade when hovered */
 }
 
+.media-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
