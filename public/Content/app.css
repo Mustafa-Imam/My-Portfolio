@@ -1,8 +1,32 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0; /* Reset margin */
 }
 
-a {
-  color: #00B7FF;
+.header-navbar {
+  margin-top: -50px; /* Ensure its at the top */
+  position: relative; /* Keep it relative */
+  margin-left: -50px; /* Center the navbar */
+  margin-right: -50px; /* Center the navbar */
 }
+
+.footer-navbar {
+  margin-bottom: -50px; /* Ensure its at the bottom */
+  position: relative; /* Keep it relative */
+  margin-left: -50px; /* Center the navbar */
+  margin-right: -50px; /* Center the navbar */
+}
+
+/* Removes underline from links and add space between icon and text */
+.footer-navbar a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-navbar a i {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+
