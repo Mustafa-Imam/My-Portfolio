@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 50px !important;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0; /* Resets margin */
 }
@@ -12,7 +12,7 @@ body {
 }
 
 .footer-navbar {
-  margin-bottom: -50px; /* Ensures its at the bottom */
+  margin-bottom: -50px !important; /* Ensures its at the bottom */
   position: relative; /* Keeps it relative */
   margin-left: -50px; /* Centers the navbar */
   margin-right: -50px; /* Centers the navbar */

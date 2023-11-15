@@ -6,7 +6,7 @@
 
 require('dotenv').config();
 
-var app = require('./app');
+var app = require('./server/config/app');
 var debug = require('debug')('classproject:server');
 var http = require('http');
 
