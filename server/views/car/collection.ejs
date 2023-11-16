@@ -13,9 +13,9 @@
                     <tr class="d-flex">
                         <th class="text-center col-2">Make</th>
                         <th class="text-center col-2">Model</th>
-                        <th class="text-center col-1">Year</th>
+                        <th class="text-center col-2">Year</th>
                         <th class="text-center col-2">Colour</th>
-                        <th class="text-center col-3">Price</th>
+                        <th class="text-center col-2">Price</th>
                         <th class="text-center col-2">Actions</th>
                     </tr>
                 </thead>
@@ -24,9 +24,9 @@
                         <tr class="d-flex">
                             <td class="text-center col-2"><%= carcollection[count].Make %></td>
                             <td class="text-center col-2"><%= carcollection[count].Model %></td>
-                            <td class="text-center col-1"><%= carcollection[count].Year %></td>
+                            <td class="text-center col-2"><%= carcollection[count].Year %></td>
                             <td class="text-center col-2"><%= carcollection[count].Colour %></td>
-                            <td class="text-center col-3"><%= carcollection[count].Price %></td>
+                            <td class="text-center col-2"><%= carcollection[count].Price %></td>
                             <td class="text-center col-2">
                                 <a href="/carcollection/edit/<%= carcollection[count]._id %>" class="btn btn-primary btn-sm">
                                     <i class="fas fa-pencil-alt"></i> Edit

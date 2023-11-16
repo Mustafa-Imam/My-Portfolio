@@ -18,14 +18,14 @@ module.exports.ReadcarData = async (req, res, next) => {
     }
 };
 
-// Get router for Create Operation --> Display the add car page
+// Get router for Create Operation --> Display the Add Car page
 module.exports.DisplayAddcar = (req, res, next) => {
     res.render('car/add', {
-        title: 'Add car'
+        title: 'Add Car'
     });
 };
 
-// Post router for Create Operation --> Process the add car page
+// Post router for Create Operation --> Process the Add Car page
 module.exports.Addcar = async (req, res, next) => {
     try {
         let newcar = new cars({
@@ -51,7 +51,7 @@ module.exports.DisplayEditcar = async (req, res, next) => {
         const id = req.params.id;
         const cartoEdit = await cars.findById(id);
         res.render('car/edit', {
-            title: 'Edit car',
+            title: 'Edit Car',
             car: cartoEdit
         });
     } catch (err) {
