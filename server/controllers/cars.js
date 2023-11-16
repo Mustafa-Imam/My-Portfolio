@@ -63,8 +63,29 @@ module.exports.DisplayEditcar = async (req, res, next) => {
 };
 
 // Post router for Edit/Update Operation --> Process the edit car page
-module.exports.Editcar = (req, res, next) => {
-    // Implementation for updating a car by id
+module.exports.Editcar = async (req, res, next) => {
+    const id = req.params.id;
+
+    let updatedCar = {
+        "Make": req.body.Make,
+        "Model": req.body.Model,
+        "Year": req.body.Year,
+        "Colour": req.body.Colour,
+        "Price": req.body.Price
+    };
+
+    try {
+        const id = req.params.id;
+        await cars.findByIdAndUpdate(id, updatedCar);
+        res.redirect('/carcollection');
+    } catch (err) {
+        console.error(err);
+        res.status(500).render("car/edit", {
+            title: 'Edit Car',
+            car: {...req.body, _id: id},
+            error: "Error updating the car: " + err.message
+        });
+    }
 };
 
 // Get router for Delete Operation
