@@ -8,43 +8,43 @@
 
             <form class="form" method="POST">
                 <div class="form-group">
-                    <label for="nameTextField">Book Title</label>
+                    <label for="makeTextField">Make</label>
                     <input type="text" class="form-control"
-                    id="nameTextField"
-                    placeholder="Enter the Book Title"
-                    name="Name" 
-                    value="<%= Book.Name %>"
+                    id="makeTextField"
+                    placeholder="Enter the cars make"
+                    make="make" 
+                    value="<%= car.make %>"
                     required>
                 </div>
 
                 <div class="form-group">
-                    <label for="authorTextField">Author</label>
+                    <label for="modelTextField">Model</label>
                     <input type="text" class="form-control"
-                    id="authorTextField"
-                    placeholder="Enter the Book's Author"
-                    name="Author" 
-                    value="<%= Book.Author %>"
+                    id="modelTextField"
+                    placeholder="Enter the car's model"
+                    make="model" 
+                    value="<%= car.model %>"
                     required>
                 </div>
 
                 <div class="form-group">
-                    <label for="publishedTextField">Year</label>
+                    <label for="yearTextField">Year</label>
                     <input type="text" class="form-control"
-                    id="publishedTextField"
-                    placeholder="Enter the Year of Publication"
-                    name="Published" 
-                    value="<%= Book.Published %>"
+                    id="yearTextField"
+                    placeholder="Enter the year the car was made"
+                    make="year" 
+                    value="<%= car.year %>"
                     required>
                 </div>
 
                 <div class="form-group">
-                    <label for="descriptionTextArea">Description</label>
+                    <label for="colourTextArea">Colour</label>
                     <textarea type="text" class="form-control"
-                    id="descriptionTextArea"
-                    placeholder="Enter the a brief description of the book"
-                    name="Description" 
+                    id="colourTextArea"
+                    placeholder="Enter the colour of the car"
+                    make="colour" 
                     required>
-                    <%= Book.Description %>
+                    <%= car.colour %>
                     </textarea>
                 </div>
 
@@ -52,16 +52,16 @@
                     <label for="priceTextField">Price</label>
                     <input type="text" class="form-control"
                     id="priceTextField"
-                    placeholder="Enter the Book's Price"
-                    name="Price" 
-                    value="<%= Book.Price %>"
+                    placeholder="Enter the car's price"
+                    make="price" 
+                    value="<%= car.price %>"
                     required>
                 </div>
 
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>
                 
-                    <a href="/booklist" class="btn btn-warning">
+                    <a href="/carcollection" class="btn btn-warning">
                         <i class="fas fa-undo"></i> Cancel</a>
 
             </form>

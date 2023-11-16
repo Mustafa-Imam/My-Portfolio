@@ -1,0 +1,45 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <h1><%= title %></h1>
+            <a href="/carcollection/add" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i> Add car
+            </a>
+            <br>
+            <table class="table table-bordered table-striped table-hover">
+                <tr class="d-flex">
+                    <th class="text-center col-2">Make</th>
+                    <th class="text-center col-2">Model</th>
+                    <th class="text-center col-1">Year</th>
+                    <th class="text-center col-2">Colour</th>
+                    <th class="text-center col-3">Price</th>
+                    <th class="text-center col-1">Action</th>
+                    <th class="text-center col-1">Action</th>
+                </tr>
+                <% for(let count = 0; count < carcollection.length; count++) { %>
+                    <tr class="d-flex">
+                        <td class="text-center col-2"><%= carcollection[count].Make %></td>
+                        <td class="text-center col-2"><%= carcollection[count].Model %></td>
+                        <td class="text-center col-1"><%= carcollection[count].Year %></td>
+                        <td class="text-center col-2"><%= carcollection[count].Colour %></td>
+                        <td class="text-center col-3"><%= carcollection[count].Price %></td>
+                        <td class="text-center col-1">
+                            <a href="/carcollection/edit/<%= carcollection[count]._id %>" class="btn btn-primary btn-sm">
+                                <i class="fas fa-pencil-alt"></i> Edit
+                            </a> 
+                        </td>
+                        <td class="text-center col-1">
+                            <a href="/carcollection/delete/<%= carcollection[count]._id %>" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </a> 
+                        </td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>

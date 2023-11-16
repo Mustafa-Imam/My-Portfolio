@@ -28,10 +28,10 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let booksRouter = require('../routes/books');
+let carRouter = require('../routes/cars');
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/booklist', booksRouter);
+app.use('/carcollection', carRouter);
 
 // POST route from contact form
 app.post('/send', (req, res) => {
