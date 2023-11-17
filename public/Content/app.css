@@ -3,6 +3,17 @@ body {
   margin: 0 !important; /* Resets margin */
 }
 
+.aboutme-title {
+  text-align: center;
+}
+
+.about-title img {
+  max-width: calc(100% - 100px);
+  display: block;
+  margin: 0 auto;
+  height: auto; /* This maintains the aspect ratio */
+}
+
 .header-navbar {
   margin-top: -50px !important; /* Ensures its at the top */
   position: relative !important; /* Keeps it relative */
@@ -102,4 +113,8 @@ body {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+  max-width: calc(100% - 100px);
+  display: block;
+  margin: 0 auto;
+  height: auto;
 }

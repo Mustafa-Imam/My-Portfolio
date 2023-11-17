@@ -7,9 +7,9 @@
             <a href="/carcollection/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add Car
             </a>
-            <table class="table table-bordered table-striped table-hover mt-3">
+            <table class="table table-bordered table-striped table-hover mt-3"> 
                 <thead>
-                    <tr class="d-flex">
+                    <tr class="d-flex"> 
                         <th class="text-center col-2">Make</th>
                         <th class="text-center col-2">Model</th>
                         <th class="text-center col-2">Year</th>
@@ -44,7 +44,7 @@
 
 <script>
     function confirmDelete(id) {
-        if (confirm('Are you sure you want to delete this car?')) {
+        if (confirm('Are you sure you want to delete this car?')) { //confirms whether or not the user should delete or cancel
             window.location.href = '/carcollection/delete/' + id;
         }
     }
