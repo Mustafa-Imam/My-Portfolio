@@ -1,3 +1,4 @@
+require('dotenv').config();
 let nodemailer = require('nodemailer');
 let createError = require('http-errors');
 let express = require('express');
@@ -8,9 +9,9 @@ let logger = require('morgan');
 let app = express();
 
 let mongoose = require('mongoose');
-let DB = require('./db');
+let URI = process.env.MONGODB_URI;
 //mongoose.connect('mongodb://127.0.0.1:27017/test');
-mongoose.connect(DB.URI);
+mongoose.connect(URI);
 let mongodDB = mongoose.connection;
 mongodDB.on("error", console.error.bind(console, "Connection Error"));
 mongodDB.once("open", ()=>{console.log("MongoDB Connected")});
