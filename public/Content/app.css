@@ -1,6 +1,5 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px !important;
   margin: 0 !important; /* Resets margin */
 }
 
@@ -41,7 +40,6 @@ body {
 
 .contact-form {
   color: black !important;
-  font-family: Arial, sans-serif !important;
   text-align: center !important;
 }
 
