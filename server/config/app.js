@@ -60,6 +60,12 @@ passport.deserializeUser(User.deserializeUser());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Middleware to attach displayName to res.locals
+app.use((req, res, next) => {
+  res.locals.displayName = req.user ? req.user.displayName : '';
+  next();
+});
+
 //Routes Section
 
 let indexRouter = require('../routes/index');
@@ -80,7 +86,7 @@ app.post('/send', (req, res) => {
   // Creates a SMTP transporter object
   let transporter = nodemailer.createTransport({
     service: 'Outlook', 
-    auth: {
+    authentication: {
       user: process.env.EMAIL, // my hidden email for security purposes
       pass: process.env.EMAIL_PASSWORD // my hidden password for security purposes
     }
