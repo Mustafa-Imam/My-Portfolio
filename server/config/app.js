@@ -10,7 +10,7 @@ let app = express();
 
 let mongoose = require('mongoose');
 let URI = process.env.MONGODB_URI;
-mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(URI);
 let mongodDB = mongoose.connection;
 mongodDB.on("error", console.error.bind(console, "Connection Error"));
 mongodDB.once("open", ()=>{console.log("MongoDB Connected")});
