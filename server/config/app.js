@@ -10,8 +10,7 @@ let app = express();
 
 let mongoose = require('mongoose');
 let URI = process.env.MONGODB_URI;
-//mongoose.connect('mongodb://127.0.0.1:27017/test');
-mongoose.connect(URI);
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
 let mongodDB = mongoose.connection;
 mongodDB.on("error", console.error.bind(console, "Connection Error"));
 mongodDB.once("open", ()=>{console.log("MongoDB Connected")});
@@ -30,6 +29,7 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 // Authentication Section
 
 let session = require('express-session');
+let MongoStore = require('connect-mongo');
 let passport = require('passport');
 let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
@@ -39,11 +39,14 @@ let flash = require('connect-flash');
 let userModel = require('../models/user');
 let User = userModel.User;
 
-// Set-up Express-Session
+// Set-up Express-Session with Connect-Mongo
 app.use(session({
   secret: "SomeSecret",
   saveUninitialized: false,
-  resave: false
+  resave: false,
+  store: MongoStore.create({
+    mongoUrl: URI
+  })
 }));
 
 // Initialize flash-connect
