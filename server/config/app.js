@@ -42,11 +42,9 @@ let User = userModel.User;
 // Set-up Express-Session with Connect-Mongo
 app.use(session({
   secret: "SomeSecret",
+  store: MongoStore.create({ mongoUrl: URI }),
   saveUninitialized: false,
-  resave: false,
-  store: MongoStore.create({
-    mongoUrl: URI
-  })
+  resave: false
 }));
 
 // Initialize flash-connect
@@ -109,7 +107,7 @@ app.post('/send', (req, res) => {
     if (error) {
       res.send("Error occurred.");
       console.log('Error occurred. ' + error.message);
-      return process.exit(1);
+      return;
     }
 
     console.log('Message sent: %s', info.messageId);
